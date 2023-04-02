@@ -32,13 +32,15 @@ def translate():
 
     end_time = time.time()
     total_time = end_time - start_time
-    
-    minutes = int(total_time // 60)
-    seconds = int(total_time % 60)
 
     response = {
         'output': output_text[0],
-        'inference_time': f"{minutes} minutes {seconds} seconds"
+        'inference_time': f"{total_time} seconds"
+    }
+
+    response = {
+        'output': output_text[0],
+        'inference_time': f"{total_time} seconds"
     }
 
     return jsonify(response)
