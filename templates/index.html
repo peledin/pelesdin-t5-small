@@ -4,35 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FLAN-T5-Small</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>FLAN-T5-Small</h1>
-    <form action="/generate" method="post">
-        <label for="text">Input:</label>
-        <textarea name="text" id="text" rows="4" cols="50"></textarea>
-        <br>
-        <button type="submit">Generate</button>
-    </form>
-    <div id="result">
-        <h2>Output:</h2>
-        <p id="output"></p>
-        <p id="inference-time"></p>
+    <div class="container">
+        <h1>FLAN-T5-Small</h1>
+        <div class="input-output-wrapper">
+            <div class="input-output-section">
+                <form action="/generate" method="post">
+                    <label for="text">Input:</label>
+                    <textarea name="text" id="text" rows="4" cols="50"></textarea>
+                    <br>
+                    <button type="submit">Generate</button>
+                </form>
+            </div>
+            <div class="input-output-section">
+                <div id="result">
+                    <label>Output:</label>
+                    <p id="output"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div id="loader" class="loader">
+              <div class="progress"></div>
+              <p id="inference-time" style="display: none; position: absolute; left: 0; right: 0; text-align: center;"></p>
+            </div>
+          </div>
+          <div class="examples">
+            <p>Examples:</p>
+            <p><b><span class="example-click">➡️</span>Translation: </b>Translate English to German: The weather is nice today.</p>
+            <p><b><span class="example-click">➡️</span>Calculation: </b>Calculate the sum of 5 and 3.</p>
+            <p><b><span class="example-click">➡️</span>Question: </b>What is the capital of Germany?</p>
+            <p><b><span class="example-click">➡️</span>Question: </b>Can Obama have a conversation with George Washington? Give the rationale before answering</p>
+            <p><b><span class="example-click">➡️</span>Question: </b>Which statement is sarcastic?
+                Options:
+                (A) Wow thats crazy, I've never seen a politician lying!
+                (B) Wow thats crazy, I've never seen Obama lying!
+                A: Let's think step by step.</p>
+        </div>    
     </div>
-
-    <script>
-        document.querySelector('form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const text = document.getElementById('text').value;
-            const response = await fetch('/generate', {
-                method: 'POST',
-                body: new FormData(e.target)
-            });
-
-            const jsonResponse = await response.json();
-            document.getElementById('output').innerText = jsonResponse.output;
-            document.getElementById('inference-time').innerText = 'Inference time: ' + jsonResponse.inference_time;
-        });
-    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
-

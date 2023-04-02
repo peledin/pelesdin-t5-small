@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+    padding: 32px;
+    max-width: 1200px;
+    width: 90%;
+}
+
+.input-output-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.input-output-section {
+    background-color: #eee;
+    padding: 24px;
+    border-radius: 8px;
+    width: 45%;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.example-section {
+    margin-top: 16px;
+}
+
+.example {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.example-text {
+    margin-right: 8px;
+}
+
+.example-click {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #007bff;
+}
+
+.example-click:hover {
+    color: #0056b3;
+}
+
+.col-12 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+
+@media (max-width: 768px) {
+    .input-output-section {
+        width: 100%;
+    }
+}
+
+/* Ladebalken */
+.loader {
+    width: 100%;
+    height: 24px;
+    position: relative;
+    background-color: #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+  
+  .loader .progress {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 25px;
+  }
+  
+  @keyframes loading {
+    0% {
+      width: 0;
+      left: 0;
+    }
+    50% {
+      width: 100%;
+      left: 0;
+    }
+    100% {
+      width: 100%;
+      left: 100%;
+    }
+  }
+
+/* Inference Time */
+#inference-time {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 0px;
+    font-size: 12px;
+    color: white;
+    display: none;
+}
