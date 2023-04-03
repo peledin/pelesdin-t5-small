@@ -38,11 +38,6 @@ def translate():
         'inference_time': f"{total_time} seconds"
     }
 
-    response = {
-        'output': output_text[0],
-        'inference_time': f"{total_time} seconds"
-    }
-
     return jsonify(response)
 
 if __name__ == '__main__':
